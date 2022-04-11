@@ -15,25 +15,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function Hero() {
+export function Hero({majorText, leftButtonText, rightButtonText}) {
   const classes = useStyles();
 
   return (
     <div className={classes.heroContent}>
       <Container maxWidth="sm">
         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-          Marque e acompanhe o seu agendamento
+          {majorText}
         </Typography>
         <div className={classes.heroButtons}>
           <Grid container spacing={2} justifyContent="center">
             <Grid item>
               <Button variant="contained" color="primary">
-                Agendar
+                {leftButtonText}
               </Button>
             </Grid>
             <Grid item>
               <Button variant="outlined" color="primary">
-                Ver Agendamentos
+                {rightButtonText}
               </Button>
             </Grid>
           </Grid>
