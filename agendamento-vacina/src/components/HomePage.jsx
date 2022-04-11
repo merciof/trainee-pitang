@@ -7,8 +7,12 @@ export function HomePage() {
   return (
     <React.Fragment>
       <Navbar />
-      <Hero />
-      <Footer text={"agendamento Vacina"} />
+      <Hero
+        majorText={"Marque e acompanhe o seu agendamento"}
+        leftButtonText={"Agendar"}
+        rightButtonText={"Ver Agendamentos"}
+      />
+      <Footer text={"Agendamento Vacina"} />
     </React.Fragment>
   );
 }
