@@ -15,7 +15,7 @@ export function AppointmentDatePicker({ startDate, setStartDate }) {
       showTimeSelect
       timeFormat="HH:mm"
       timeIntervals={60}
-      //dateFormat="MMMM d, yyyy h:mm aa"
+      timeCaption="Horário"
     />
   );
 }
