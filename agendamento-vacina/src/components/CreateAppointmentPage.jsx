@@ -2,27 +2,18 @@ import React from "react";
 import {
   Grid,
   makeStyles,
-  Card,
   Button,
-  CardHeader,
   TextField,
+  Container,
+  Paper,
+  Typography,
 } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AppointmentDatePicker } from "./AppointmentDatePicker.jsx";
 import { BirthdayDatePicker } from "./BirthDayDatePicker.jsx";
 import { Navbar } from "./Navbar.jsx";
-import { Footer } from "./Footer.jsx";
-
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  occupation: "",
-  city: "",
-  country: "",
-  email: "",
-  password: "",
-};
+import { appointmentService } from "../service/appointmentService.js";
 
 //password validation
 const lowercaseRegEx = /(?=.*[a-z])/;
@@ -31,21 +22,7 @@ const numericRegEx = /(?=.*[0-9])/;
 const lengthRegEx = /(?=.{6,})/;
 
 let validationSchema = Yup.object({
-  firstName: Yup.string().min(3, " 3 caracteres").required("Requerido"),
-  lastName: Yup.string().min(3, " 3 caracteres").required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string()
-    // .matches(
-    //   lowercaseRegEx,
-    //   "Must contain one lowercase alphabetical character!"
-    // )
-    // .matches(
-    //   uppercaseRegEx,
-    //   "Must contain one uppercase alphabetical character!"
-    // )
-    // .matches(numericRegEx, "Must contain one numeric character!")
-    // .matches(lengthRegEx, "Must contain 6 characters!")
-    .required("Required!"),
+  name: Yup.string().min(3, " mínimo de 3 caracteres").required("Requerido"),
 });
 
 const useStyle = makeStyles((theme) => ({
@@ -55,20 +32,30 @@ const useStyle = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
   },
+  marginb: {
+    marginBottom: 10,
+  },
+  margint: {
+    marginTop: 10,
+  },
 }));
 
 export function CreateAppointmentPage() {
   const formik = useFormik({
     initialValues: {
-      email: "foobar@example.com",
+      name: "",
     },
-    //validationSchema: validationSchema,
+    validationSchema: validationSchema,
     onSubmit: (values) => {
       //alert(JSON.stringify(values, null, 2));
 
       values = { ...values, appointmentDate, birthDay };
 
       console.log(values);
+
+      console.dir(values);
+
+      appointmentService.create(values);
     },
   });
 
@@ -81,43 +68,55 @@ export function CreateAppointmentPage() {
   return (
     <React.Fragment>
       <Navbar />
-      <Grid container justify="center">
+      <Grid container justify="center" className={classes.margint}>
         <Grid item md={6}>
-          <Card className={classes.padding}>
-            <CardHeader title="REGISTER FORM"></CardHeader>
+          <Paper className={classes.padding} elevation={3}>
+            <Typography variant="h6">Formulário de Agendamento</Typography>
             <form onSubmit={formik.handleSubmit}>
-              <TextField
-                fullWidth
-                id="nome"
-                name="nome"
-                label="nome"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-              />
-              data agendamento
-              <AppointmentDatePicker
-                startDate={appointmentDate}
-                setStartDate={setappointmentDate}
-              />
-              data nascimento
-              <BirthdayDatePicker
-                startDate={birthDay}
-                setStartDate={setBirthDay}
-              />
-              horario agendamento
-              <Button
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
-              >
-                Submeter
-              </Button>
+              <Grid item container md={12}>
+                <Grid item className={classes.marginb} md={6}>
+                  <TextField
+                    fullWidth
+                    id="name"
+                    name="name"
+                    label="nome"
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.touched.name && formik.errors.name}
+                  />
+                </Grid>
+                <Grid item className={classes.marginb} md={12} justify="center">
+                  <Typography variant="subtitle2" gutterBottom>
+                    Data Agendamento
+                  </Typography>
+                  <AppointmentDatePicker
+                    startDate={appointmentDate}
+                    setStartDate={setappointmentDate}
+                  />
+                </Grid>
+                <Grid item className={classes.marginb} md={12}>
+                  <Typography variant="subtitle2" gutterBottom>
+                    Data Nascimento
+                  </Typography>
+                  <BirthdayDatePicker
+                    startDate={birthDay}
+                    setStartDate={setBirthDay}
+                  />
+                </Grid>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  fullWidth
+                  type="submit"
+                  disabled={!formik.values.name}
+                >
+                  Submeter
+                </Button>
+              </Grid>
             </form>
-          </Card>
+          </Paper>
         </Grid>
       </Grid>
     </React.Fragment>
