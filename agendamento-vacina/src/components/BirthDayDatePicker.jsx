@@ -29,6 +29,7 @@ export function BirthdayDatePicker({ startDate, setStartDate }) {
   return (
     <DatePicker
       locale={"ptBR"}
+      dateFormat="dd/MM/yyyy"
       renderCustomHeader={({
         date,
         changeYear,

@@ -5,15 +5,17 @@ import { ptBR } from "date-fns/locale";
 
 registerLocale("ptBR", ptBR);
 
-
 export function AppointmentDatePicker({ startDate, setStartDate }) {
-  
   return (
     <DatePicker
-      locale={"ptBR"}
-      dateFormat="dd/MM/yyyy"
       selected={startDate}
       onChange={(date) => setStartDate(date)}
+      locale={"ptBR"}
+      dateFormat="dd/MM/yyyy"
+      showTimeSelect
+      timeFormat="HH:mm"
+      timeIntervals={60}
+      timeCaption="Horário"
     />
   );
 }

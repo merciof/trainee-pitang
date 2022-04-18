@@ -3,6 +3,7 @@ import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
   return (
@@ -10,9 +11,11 @@ export function Navbar() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Agendamento Vacina
-          </Typography>
+          <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
+            <Typography variant="h6" color="inherit" noWrap>
+              Agendamento Vacina
+            </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
     </React.Fragment>
