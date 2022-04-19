@@ -15,12 +15,6 @@ import { BirthdayDatePicker } from "./BirthDayDatePicker.jsx";
 import { Navbar } from "./Navbar.jsx";
 import { appointmentService } from "../service/appointmentService.js";
 
-//password validation
-const lowercaseRegEx = /(?=.*[a-z])/;
-const uppercaseRegEx = /(?=.*[A-Z])/;
-const numericRegEx = /(?=.*[0-9])/;
-const lengthRegEx = /(?=.{6,})/;
-
 let validationSchema = Yup.object({
   name: Yup.string().min(3, " mínimo de 3 caracteres").required("Requerido"),
 });
@@ -110,7 +104,7 @@ export function CreateAppointmentPage() {
                   variant="contained"
                   fullWidth
                   type="submit"
-                  disabled={!formik.values.name}
+                  disabled={formik.errors.name}
                 >
                   Submeter
                 </Button>
