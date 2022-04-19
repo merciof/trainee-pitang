@@ -31,12 +31,6 @@ const columns = [
     width: 200,
     editable: true,
   },
-  {
-    field: "conclusion",
-    headerName: "Conclusão",
-    width: 200,
-    editable: true,
-  },
 ];
 
 const rows = [
@@ -55,9 +49,9 @@ export default function DataTable({ appointments }) {
 
   let appointmentsWithId = [];
 
-   React.useEffect(function () {
-       moment.locale("pt-br");
-   }, []);
+  React.useEffect(function () {
+    moment.locale("pt-br");
+  }, []);
 
   React.useEffect(
     function createAppointmentsArrayWithId() {
@@ -68,7 +62,7 @@ export default function DataTable({ appointments }) {
           appointmentDate: moment(appointment.appointmentDate).format("LL"),
           birthDay: moment(appointment.appointmentDate).format("L"),
           accomplished: RadioButtonUncheckedIcon,
-          hour: new Date(appointment.appointmentDate).getHours() + 'h',
+          hour: new Date(appointment.appointmentDate).getHours() + "h",
         });
       });
 
@@ -85,8 +79,6 @@ export default function DataTable({ appointments }) {
         rows={appointmentsWithIdState}
         columns={columns}
         pageSize={10}
-        checkboxSelection
-        disableSelectionOnClick
       />
     </div>
   );
