@@ -1,17 +1,9 @@
 import React from "react";
-import {
-  Grid,
-  makeStyles,
-  Container,
-  Paper,
-  Typography,
-} from "@material-ui/core";
+import { Grid, makeStyles, Container, Typography } from "@material-ui/core";
 
 import { Navbar } from "../../presentational/Navbar";
-
 import { MonthPicker } from "../../presentational/Pickers/MonthPicker";
-
-import AppointmentsTable from "../../presentational/AppointmentsTable";
+import { AppointmentsTable } from "../../presentational/AppointmentsTable";
 import { FilterDatePicker } from "../../presentational/Pickers/FilterDatePicker";
 import { AppointmentDatePicker } from "../../presentational/Pickers/AppointmentDatePicker";
 
