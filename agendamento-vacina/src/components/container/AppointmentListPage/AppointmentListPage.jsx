@@ -1,7 +1,4 @@
 import React from "react";
-import { Navbar } from "../Navbar.jsx";
-import { appointmentService } from "../../../service/appointmentService.js";
-import { MonthPicker } from "../MonthPicker.jsx";
 import {
   Grid,
   makeStyles,
@@ -9,9 +6,16 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import AppointmentsTable from "../AppointmentsTable.jsx";
-import { FilterDatePicker } from "../FilterDatePicker.jsx";
-import { AppointmentDatePicker } from "../presentational/AppointmentDatePicker.jsx";
+
+import { Navbar } from "../../presentational/Navbar";
+
+import { MonthPicker } from "../../presentational/Pickers/MonthPicker";
+
+import AppointmentsTable from "../../presentational/AppointmentsTable";
+import { FilterDatePicker } from "../../presentational/Pickers/FilterDatePicker";
+import { AppointmentDatePicker } from "../../presentational/Pickers/AppointmentDatePicker";
+
+import { appointmentService } from "../../../service/appointmentService.js";
 
 const useStyles = makeStyles((theme) => ({
   margintb: {

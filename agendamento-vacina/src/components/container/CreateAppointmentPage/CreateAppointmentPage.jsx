@@ -10,9 +10,11 @@ import {
 } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { AppointmentDatePicker } from "../presentational/AppointmentDatePicker/AppointmentDatePicker.jsx";
-import { BirthdayDatePicker } from "../../presentational/Pickers/BirthDayDatePicker/BirthDayDatePicker.jsx";
-import { Navbar } from "../Navbar.jsx";
+
+import { AppointmentDatePicker } from "../../presentational/Pickers/AppointmentDatePicker";
+import { BirthdayDatePicker } from "../../presentational/Pickers/BirthDayDatePicker";
+import { Navbar } from "../../presentational/Navbar";
+
 import { appointmentService } from "../../../service/appointmentService.js";
 
 let validationSchema = Yup.object({

@@ -1,8 +1,9 @@
 import React from "react";
-import { CreateAppointmentPage } from "./components/CreateAppointmentPage.jsx";
-import { HomePage } from "./components/HomePage.jsx";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { AppointmentListPage } from "./components/AppointmentListPage.jsx";
+
+import { CreateAppointmentPage } from "./components/container/CreateAppointmentPage";
+import { HomePage } from "./components/container/HomePage";
+import { AppointmentListPage } from "./components/container/AppointmentListPage";
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
-import { Footer } from "../../presentational/Footer/Footer.jsx";
-import { Hero } from "../Hero.jsx";
-import { Navbar } from "../Navbar.jsx";
+import { Footer } from "../../presentational/Footer";
+import { Hero } from "../../presentational/Hero";
+import { Navbar } from "../../presentational/Navbar";
 
 export function HomePage() {
   return (
