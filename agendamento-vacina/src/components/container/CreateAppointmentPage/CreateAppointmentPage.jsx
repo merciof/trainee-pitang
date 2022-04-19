@@ -10,10 +10,10 @@ import {
 } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { AppointmentDatePicker } from "./AppointmentDatePicker.jsx";
-import { BirthdayDatePicker } from "./BirthDayDatePicker.jsx";
-import { Navbar } from "./Navbar.jsx";
-import { appointmentService } from "../service/appointmentService.js";
+import { AppointmentDatePicker } from "../presentational/AppointmentDatePicker/AppointmentDatePicker.jsx";
+import { BirthdayDatePicker } from "../../presentational/Pickers/BirthDayDatePicker/BirthDayDatePicker.jsx";
+import { Navbar } from "../Navbar.jsx";
+import { appointmentService } from "../../../service/appointmentService.js";
 
 let validationSchema = Yup.object({
   name: Yup.string().min(3, " mínimo de 3 caracteres").required("Requerido"),
