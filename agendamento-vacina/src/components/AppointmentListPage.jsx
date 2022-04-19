@@ -13,38 +13,51 @@ import AppointmentsTable from "./AppointmentsTable.jsx";
 import { FilterDatePicker } from "./FilterDatePicker.jsx";
 import { AppointmentDatePicker } from "./AppointmentDatePicker.jsx";
 
+const useStyles = makeStyles((theme) => ({
+  margintb: {
+    marginBottom: 20,
+    marginTop: 10,
+  },
+}));
+
 export function AppointmentListPage() {
+  const classes = useStyles();
+
   const [month, setMonth] = React.useState(null);
-
   const [dayMonth, setDayMonth] = React.useState(null);
-
   const [dayMonthHour, setDayMonthHour] = React.useState(null);
-
   const [appointments, setAppointments] = React.useState([]);
+
+
+
 
   React.useEffect(
     function getAppointmentsByMonth() {
-      appointmentService
-        .getAppointmentsByMonth({ appointmentDate: month })
-        .then((r) => setAppointments(r.data));
+      if (month)
+        appointmentService
+          .getAppointmentsByMonth({ appointmentDate: month })
+          .then((r) => setAppointments(r.data));
     },
     [month]
   );
 
   React.useEffect(
-    function getAppointmentsByDayAndMonth() {
-      appointmentService
-        .getAppointmentsByDay({ appointmentDate: dayMonth })
-        .then((r) => setAppointments(r.data));
+    
+    function getAppointmentsByDayMonth() {
+      if (dayMonth)
+        appointmentService
+          .getAppointmentsByDay({ appointmentDate: dayMonth })
+          .then((r) => setAppointments(r.data));
     },
     [dayMonth]
   );
 
   React.useEffect(
-    function () {
-      appointmentService
-        .getAppointmentsByHour({ appointmentDate: dayMonthHour })
-        .then((r) => setAppointments(r.data));
+    function getAppointmentsByDayMonthHour() {
+      if (dayMonthHour)
+        appointmentService
+          .getAppointmentsByHour({ appointmentDate: dayMonthHour })
+          .then((r) => setAppointments(r.data));
     },
     [dayMonthHour]
   );
@@ -56,16 +69,35 @@ export function AppointmentListPage() {
       <Navbar />
 
       <Container>
-        filtrar por mês
-        <MonthPicker startDate={month} setStartDate={setMonth} />
-        filtrar por mês e dia
-        <FilterDatePicker startDate={dayMonth} setStartDate={setDayMonth} />
-        filtrar por mês dia e hora filtrar atendimentos realizados e não
-        realizados
-        <AppointmentDatePicker
-          startDate={dayMonthHour}
-          setStartDate={setDayMonthHour}
-        />
+        <Grid container>
+          <Grid item md={4} className={classes.margintb}>
+            <Typography variant="subtitle1" gutterBottom>
+              Filtrar por mês dia e hora
+            </Typography>
+
+            <AppointmentDatePicker
+              startDate={dayMonthHour}
+              setStartDate={setDayMonthHour}
+            />
+          </Grid>
+
+          <Grid item md={4} className={classes.margintb}>
+            <Typography variant="subtitle1" gutterBottom>
+              Filtrar por mês e dia
+            </Typography>
+
+            <FilterDatePicker startDate={dayMonth} setStartDate={setDayMonth} />
+          </Grid>
+
+          <Grid item md={4} className={classes.margintb}>
+            <Typography variant="subtitle1" gutterBottom>
+              Filtrar por mês
+            </Typography>
+
+            <MonthPicker startDate={month} setStartDate={setMonth} />
+          </Grid>
+        </Grid>
+
         <AppointmentsTable appointments={appointments} />
       </Container>
     </React.Fragment>
