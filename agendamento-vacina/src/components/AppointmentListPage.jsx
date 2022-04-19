@@ -28,8 +28,9 @@ export function AppointmentListPage() {
   const [dayMonthHour, setDayMonthHour] = React.useState(null);
   const [appointments, setAppointments] = React.useState([]);
 
-
-
+  React.useEffect(function getAllAppointments() {
+    appointmentService.index().then((r) => setAppointments(r.data));
+  }, []);
 
   React.useEffect(
     function getAppointmentsByMonth() {
@@ -42,7 +43,6 @@ export function AppointmentListPage() {
   );
 
   React.useEffect(
-    
     function getAppointmentsByDayMonth() {
       if (dayMonth)
         appointmentService
