@@ -21,6 +21,11 @@ const columns = [
     width: 200,
   },
   {
+    field: "hour",
+    headerName: "Horário",
+    width: 200,
+  },
+  {
     field: "accomplished",
     headerName: "Realizado",
     width: 200,
@@ -63,6 +68,7 @@ export default function DataTable({ appointments }) {
           appointmentDate: moment(appointment.appointmentDate).format("LL"),
           birthDay: moment(appointment.appointmentDate).format("L"),
           accomplished: RadioButtonUncheckedIcon,
+          hour: new Date(appointment.appointmentDate).getHours() + 'h',
         });
       });
 
@@ -70,6 +76,8 @@ export default function DataTable({ appointments }) {
     },
     [appointments]
   );
+
+  // fazer filtragem por hora
 
   return (
     <div style={{ height: 400, width: "100%" }}>
