@@ -5,15 +5,22 @@ import { CreateAppointmentPage } from "./components/container/CreateAppointmentP
 import { HomePage } from "./components/container/HomePage";
 import { AppointmentListPage } from "./components/container/AppointmentListPage";
 
+import { AppointmentContextProvider } from "./contexts/appointment/AppointmentContextProvider.jsx";
+
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path={"/createAppointment"} component={CreateAppointmentPage} />
-        <Route path={"/appointmentList"} component={AppointmentListPage} />
-        <Route Route path={"/"} component={HomePage} />
-      </Switch>
-    </BrowserRouter>
+    <AppointmentContextProvider>
+      <BrowserRouter>
+        <Switch>
+          <Route
+            path={"/createAppointment"}
+            component={CreateAppointmentPage}
+          />
+          <Route path={"/appointmentList"} component={AppointmentListPage} />
+          <Route Route path={"/"} component={HomePage} />
+        </Switch>
+      </BrowserRouter>
+    </AppointmentContextProvider>
   );
 }
 
