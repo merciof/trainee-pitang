@@ -7,8 +7,9 @@ import { AppointmentsTable } from "../../presentational/AppointmentsTable";
 import { FilterDatePicker } from "../../presentational/Pickers/FilterDatePicker";
 import { AppointmentDatePicker } from "../../presentational/Pickers/AppointmentDatePicker";
 
-import { appointmentService } from "../../../service/appointmentService.js";
-import { appointmentContext } from "../../../contexts/appointmentContext.js";
+import { appointmentService } from "../../../services/appointmentService";
+
+import { AppointmentContext } from "../../../contexts/appointment";
 
 const useStyles = makeStyles((theme) => ({
   margintb: {
@@ -20,15 +21,19 @@ const useStyles = makeStyles((theme) => ({
 export function AppointmentListPage() {
   const classes = useStyles();
 
-  const appointmentContext = React.useContext(appointmentContext);
+  const { appointmentContextState, dispatch } = React.useContext(AppointmentContext);
 
   const [month, setMonth] = React.useState(null);
   const [dayMonth, setDayMonth] = React.useState(null);
   const [dayMonthHour, setDayMonthHour] = React.useState(null);
-  const [appointments, setAppointments] = React.useState([]);
+  //const [appointments, setAppointments] = React.useState([]);
 
   React.useEffect(function getAllAppointments() {
-    appointmentService.index().then((r) => setAppointments(r.data));
+    if (appointmentContextState.appointments.length === 0)
+      appointmentService.index().then((r) => {
+        //setAppointments(r.data);
+        dispatch({ type: "UPDATE_APPOINTMENTS", payload: r.data });
+      });
   }, []);
 
   React.useEffect(
@@ -36,7 +41,7 @@ export function AppointmentListPage() {
       if (month)
         appointmentService
           .getAppointmentsByMonth({ appointmentDate: month })
-          .then((r) => setAppointments(r.data));
+          .then((r) => dispatch({ type: "UPDATE_APPOINTMENTS", payload: r.data }));
     },
     [month]
   );
@@ -46,7 +51,7 @@ export function AppointmentListPage() {
       if (dayMonth)
         appointmentService
           .getAppointmentsByDay({ appointmentDate: dayMonth })
-          .then((r) => setAppointments(r.data));
+          .then((r) => dispatch({ type: "UPDATE_APPOINTMENTS", payload: r.data }));
     },
     [dayMonth]
   );
@@ -56,7 +61,7 @@ export function AppointmentListPage() {
       if (dayMonthHour)
         appointmentService
           .getAppointmentsByHour({ appointmentDate: dayMonthHour })
-          .then((r) => setAppointments(r.data));
+          .then((r) => dispatch({ type: "UPDATE_APPOINTMENTS", payload: r.data }));
     },
     [dayMonthHour]
   );
@@ -95,7 +100,9 @@ export function AppointmentListPage() {
           </Grid>
         </Grid>
 
-        <AppointmentsTable appointments={appointments} />
+        <AppointmentsTable
+          appointments={appointmentContextState.appointments}
+        />
       </Container>
     </React.Fragment>
   );
