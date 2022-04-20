@@ -58,8 +58,6 @@ export function AppointmentListPage() {
     [dayMonthHour]
   );
 
-  //exibir os dados dos agendamentos em cartões
-  //TODO implementar filtros adicionais
   return (
     <React.Fragment>
       <Navbar />
