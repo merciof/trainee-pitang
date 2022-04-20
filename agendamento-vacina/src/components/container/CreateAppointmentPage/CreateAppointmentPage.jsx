@@ -47,11 +47,10 @@ export function CreateAppointmentPage() {
 
       values = { ...values, appointmentDate, birthDay };
 
-      console.log(values);
-
-      console.dir(values);
-
-      appointmentService.create(values);
+      appointmentService
+        .create(values)
+        .then((r) => alert(`Agendamento realizado para ${r.data.name}.`))
+        .catch((error) => alert(error.response.data));
     },
   });
 
