@@ -15,9 +15,7 @@ describe("HomePage", () => {
     const buttonAgendar = screen.getByRole("button", { name: /agendar/i });
     expect(buttonAgendar).toBeInTheDocument();
   });
-});
 
-describe("HomePage", () => {
   it("should render 'VER AGENDAMENTOS' button", () => {
     render(
       <BrowserRouter>
@@ -29,9 +27,7 @@ describe("HomePage", () => {
     });
     expect(buttonAgendar).toBeInTheDocument();
   });
-});
 
-describe("HomePage", () => {
   it("should render 'Agendamento Vacina' heading", () => {
     render(
       <BrowserRouter>
