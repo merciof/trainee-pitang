@@ -15,7 +15,7 @@ import { AppointmentDatePicker } from "../../presentational/Pickers/AppointmentD
 import { BirthdayDatePicker } from "../../presentational/Pickers/BirthDayDatePicker";
 import { Navbar } from "../../presentational/Navbar";
 
-import { appointmentService } from "../../../service/appointmentService.js";
+import { appointmentService } from "../../../services/appointmentService";
 
 let validationSchema = Yup.object({
   name: Yup.string().min(3, " mínimo de 3 caracteres").required("Requerido"),
@@ -47,11 +47,10 @@ export function CreateAppointmentPage() {
 
       values = { ...values, appointmentDate, birthDay };
 
-      console.log(values);
-
-      console.dir(values);
-
-      appointmentService.create(values);
+      appointmentService
+        .create(values)
+        .then((r) => alert(`Agendamento realizado para ${r.data.name}.`))
+        .catch((error) => alert(error.response.data));
     },
   });
 
@@ -64,10 +63,10 @@ export function CreateAppointmentPage() {
   return (
     <React.Fragment>
       <Navbar />
-      <Grid container justify="center" className={classes.margint}>
+      <Grid container justifyContent="center" className={classes.margint}>
         <Grid item md={6}>
           <Paper className={classes.padding} elevation={3}>
-            <Typography variant="h6">Formulário de Agendamento</Typography>
+            <Typography variant="h6">Formulario de Agendamento</Typography>
             <form onSubmit={formik.handleSubmit}>
               <Grid item container md={12}>
                 <Grid item className={classes.marginb} md={6}>
@@ -83,7 +82,7 @@ export function CreateAppointmentPage() {
                     helperText={formik.touched.name && formik.errors.name}
                   />
                 </Grid>
-                <Grid item className={classes.marginb} md={12} justify="center">
+                <Grid item className={classes.marginb} md={12}>
                   <Typography variant="subtitle2" gutterBottom>
                     Data Agendamento
                   </Typography>

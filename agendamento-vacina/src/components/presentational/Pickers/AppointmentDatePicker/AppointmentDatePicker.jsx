@@ -8,6 +8,8 @@ registerLocale("ptBR", ptBR);
 export function AppointmentDatePicker({ startDate, setStartDate }) {
   return (
     <DatePicker
+      required
+      placeholderText="Data Agendamento"
       selected={startDate}
       onChange={(date) => setStartDate(date)}
       locale={"ptBR"}
@@ -16,6 +18,7 @@ export function AppointmentDatePicker({ startDate, setStartDate }) {
       timeFormat="HH:mm"
       timeIntervals={60}
       timeCaption="Horário"
+      minDate={new Date()}
     />
   );
 }

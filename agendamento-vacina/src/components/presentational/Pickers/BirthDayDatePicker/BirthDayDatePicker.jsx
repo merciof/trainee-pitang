@@ -9,7 +9,6 @@ import { ptBR } from "date-fns/locale";
 registerLocale("ptBR", ptBR);
 
 export function BirthdayDatePicker({ startDate, setStartDate }) {
-
   const years = range(1920, getYear(new Date()) + 1, 1);
 
   const months = [
@@ -28,7 +27,9 @@ export function BirthdayDatePicker({ startDate, setStartDate }) {
   ];
   return (
     <DatePicker
-      locale={"ptBR"}
+      required
+      placeholderText="Data Nascimento"
+      name="birthDayPicker"
       dateFormat="dd/MM/yyyy"
       renderCustomHeader={({
         date,

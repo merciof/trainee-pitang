@@ -7,7 +7,7 @@ import { AppointmentsTable } from "../../presentational/AppointmentsTable";
 import { FilterDatePicker } from "../../presentational/Pickers/FilterDatePicker";
 import { AppointmentDatePicker } from "../../presentational/Pickers/AppointmentDatePicker";
 
-import { appointmentService } from "../../../service/appointmentService.js";
+import { appointmentService } from "../../../services/appointmentService/appointmentService";
 
 const useStyles = makeStyles((theme) => ({
   margintb: {
