@@ -8,6 +8,7 @@ import { FilterDatePicker } from "../../presentational/Pickers/FilterDatePicker"
 import { AppointmentDatePicker } from "../../presentational/Pickers/AppointmentDatePicker";
 
 import { appointmentService } from "../../../service/appointmentService.js";
+import { appointmentContext } from "../../../contexts/appointmentContext.js";
 
 const useStyles = makeStyles((theme) => ({
   margintb: {
@@ -18,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
 
 export function AppointmentListPage() {
   const classes = useStyles();
+
+  const appointmentContext = React.useContext(appointmentContext);
 
   const [month, setMonth] = React.useState(null);
   const [dayMonth, setDayMonth] = React.useState(null);
