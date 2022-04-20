@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import moment from "moment";
 import "moment/locale/pt-br.js";
 
-import { appointmentService } from "../../../service/appointmentService.js";
+import { appointmentService } from "../../../services/appointmentService/appointmentService";
 
 const columns = [
   {

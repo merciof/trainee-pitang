@@ -12,6 +12,9 @@ const appointmentService = {
   read: function (id) {
     return axios.get(API_URL + id);
   },
+  put: function (body) {
+    return axios.put(API_URL, body);
+  },
   getAppointmentsByMonth: function (body) {
     return axios.post("http://localhost:8080/api/getAppointmentsByMonth", body);
   },
