@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid, 	ptBR } from "@material-ui/data-grid";
 import Button from "@material-ui/core/Button";
 import moment from "moment";
 import "moment/locale/pt-br.js";
@@ -95,6 +95,7 @@ export function AppointmentsTable({ appointments }) {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
+        localeText={ptBR.props.MuiDataGrid.localeText}
         rows={appointmentsWithIdState}
         columns={columns}
         pageSize={10}
