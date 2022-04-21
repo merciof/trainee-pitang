@@ -1,28 +1,28 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/appointment/";
+import { API_URL } from "../../config/config.js";
 
 const appointmentService = {
   index: function () {
-    return axios.get(API_URL);
+    return axios.get(API_URL + "appointment/");
   },
   create: function (body) {
-    return axios.post(API_URL, body);
+    return axios.post(API_URL + "appointment/", body);
   },
   read: function (id) {
-    return axios.get(API_URL + id);
+    return axios.get(API_URL + "appointment/" + id);
   },
   put: function (body) {
-    return axios.put(API_URL, body);
+    return axios.put(API_URL + "appointment/", body);
   },
   getAppointmentsByMonth: function (body) {
-    return axios.post("http://localhost:8080/api/getAppointmentsByMonth", body);
+    return axios.post(API_URL + "getAppointmentsByMonth/", body);
   },
   getAppointmentsByDay: function (body) {
-    return axios.post("http://localhost:8080/api/getAppointmentsByDay", body);
+    return axios.post(API_URL + "getAppointmentsByDay", body);
   },
   getAppointmentsByHour: function (body) {
-    return axios.post("http://localhost:8080/api/getAppointmentsByHour", body);
+    return axios.post(API_URL + "getAppointmentsByHour", body);
   },
 };
 
