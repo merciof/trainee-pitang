@@ -1,5 +1,8 @@
 # trainee-pitang
-agendamento vacina covid
+
+[MIT License](./LICENSE) © [Mércio Filho](https://github.com/merciof)
+
+
 
 ## :bulb: Introduction 
 
