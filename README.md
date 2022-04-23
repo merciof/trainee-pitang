@@ -74,15 +74,7 @@ Dumb data example:
 
 ps: The appointments data on the table is not lost if you refresh the page. It is saved on localStorage via contextApi and useReducer.
 
-## :house: Getting started
-
-1. Clone this repo.
-2. Install the packages using your favorite package manager ( yarn install or npm install ).
-3. Rename the file config/config.example.js to config/config.js, and add the API_URL value. 
-4. Open the browser on: `http://localhost:3000`
-5. The backend must be on too.
-
-
+[MIT License](./LICENSE) © [Mércio Filho](https://github.com/merciof)
 
 
 
