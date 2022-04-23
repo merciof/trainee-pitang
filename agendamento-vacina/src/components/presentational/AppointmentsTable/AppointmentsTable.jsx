@@ -52,15 +52,6 @@ const columns = [
   },
 ];
 
-const rows = [
-  {
-    id: 1,
-    name: "Jon",
-    birthDay: "24/12/1989",
-    appointmentDate: "18 de abril de 2022",
-  },
-];
-
 export function AppointmentsTable({ appointments }) {
   const [appointmentsWithIdState, setAppointmentsWithIdState] = React.useState(
     []
