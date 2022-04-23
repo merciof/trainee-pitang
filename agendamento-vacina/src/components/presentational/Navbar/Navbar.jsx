@@ -5,7 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 
-export function Navbar() {
+export function Navbar({ text }) {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -13,7 +13,7 @@ export function Navbar() {
         <Toolbar>
           <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
             <Typography variant="h6" color="inherit" noWrap>
-              Agendamento Vacina
+              {text}
             </Typography>
           </Link>
         </Toolbar>

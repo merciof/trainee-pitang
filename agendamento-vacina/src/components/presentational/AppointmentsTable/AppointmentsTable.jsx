@@ -1,10 +1,8 @@
 import * as React from "react";
-import { DataGrid, 	ptBR } from "@material-ui/data-grid";
+import { DataGrid, ptBR } from "@material-ui/data-grid";
 import Button from "@material-ui/core/Button";
 import moment from "moment";
 import "moment/locale/pt-br.js";
-
-import { appointmentService } from "../../../services/appointmentService/appointmentService";
 
 const columns = [
   {
@@ -54,15 +52,6 @@ const columns = [
   },
 ];
 
-const rows = [
-  {
-    id: 1,
-    name: "Jon",
-    birthDay: "24/12/1989",
-    appointmentDate: "18 de abril de 2022",
-  },
-];
-
 export function AppointmentsTable({ appointments }) {
   const [appointmentsWithIdState, setAppointmentsWithIdState] = React.useState(
     []
@@ -74,6 +63,8 @@ export function AppointmentsTable({ appointments }) {
     moment.locale("pt-br");
   }, []);
 
+  // this effect is used to generate a new array of appointments structured as required
+  // to be presented by the DataGrid component
   React.useEffect(
     function createAppointmentsArrayWithId() {
       appointments.forEach(function (appointment) {

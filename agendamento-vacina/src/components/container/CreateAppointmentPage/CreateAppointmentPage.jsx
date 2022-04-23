@@ -4,7 +4,6 @@ import {
   makeStyles,
   Button,
   TextField,
-  Container,
   Paper,
   Typography,
 } from "@material-ui/core";
@@ -37,6 +36,9 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 export function CreateAppointmentPage() {
+  const [appointmentDate, setappointmentDate] = React.useState(new Date());
+  const [birthDay, setBirthDay] = React.useState(new Date());
+  const classes = useStyle();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -54,15 +56,9 @@ export function CreateAppointmentPage() {
     },
   });
 
-  const [appointmentDate, setappointmentDate] = React.useState(new Date());
-
-  const [birthDay, setBirthDay] = React.useState(new Date());
-
-  const classes = useStyle();
-
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar text={"Agendamento Vacina"} />
       <Grid container justifyContent="center" className={classes.margint}>
         <Grid item md={6}>
           <Paper className={classes.padding} elevation={3}>
