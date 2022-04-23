@@ -1,12 +1,16 @@
 # trainee-pitang
 
-[MIT License](./LICENSE) © [Mércio Filho](https://github.com/merciof)
-
-
-
 ## :bulb: Introduction 
 
 This project is a Single Page Application for the creation of vaccine appointments.
+
+## :house: Getting started
+
+1. Clone this repo.
+2. Install the packages using your favorite package manager ( yarn install or npm install ).
+3. **Important:** Rename the file config/**config.example.js** to config/**config.js** and add the API_URL. The default is http://localhost:8080
+4. Run the app.
+5. The backend must be on too.
 
 ## :tada: Technologies
 
@@ -23,14 +27,6 @@ This project uses the following technologies
 - :zap: **React DatePicker** -> To nicely pick date, month and hour.
 - :zap: **MomentJS** -> For nice visualization of dates.
 - :zap: **React Testing Library** -> For frontend tests.
-
-## :house: Getting started
-
-1. Clone this repo.
-2. Install the packages using your favorite package manager ( yarn install or npm install ).
-3. Rename the file config/config.example.js to config/config.js, and add the API_URL value. 
-4. Open the browser on: `http://localhost:3000`
-5. The backend must be on too.
 
 ## :ticket: About the project
 
@@ -78,7 +74,13 @@ Dumb data example:
 
 ps: The appointments data on the table is not lost if you refresh the page. It is saved on localStorage via contextApi and useReducer.
 
+## :house: Getting started
 
+1. Clone this repo.
+2. Install the packages using your favorite package manager ( yarn install or npm install ).
+3. Rename the file config/config.example.js to config/config.js, and add the API_URL value. 
+4. Open the browser on: `http://localhost:3000`
+5. The backend must be on too.
 
 
 
