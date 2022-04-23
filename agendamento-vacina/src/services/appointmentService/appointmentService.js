@@ -12,8 +12,8 @@ const appointmentService = {
   read: function (id) {
     return axios.get(API_URL + "appointment/" + id);
   },
-  put: function (body) {
-    return axios.put(API_URL + "appointment/", body);
+  put: function (body, id) {
+    return axios.put(API_URL + `appointment/${id}`, body);
   },
   getAppointmentsByMonth: function (body) {
     return axios.post(API_URL + "getAppointmentsByMonth/", body);
