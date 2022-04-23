@@ -37,6 +37,9 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 export function CreateAppointmentPage() {
+  const [appointmentDate, setappointmentDate] = React.useState(new Date());
+  const [birthDay, setBirthDay] = React.useState(new Date());
+  const classes = useStyle();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -53,12 +56,6 @@ export function CreateAppointmentPage() {
         .catch((error) => alert(error.response.data));
     },
   });
-
-  const [appointmentDate, setappointmentDate] = React.useState(new Date());
-
-  const [birthDay, setBirthDay] = React.useState(new Date());
-
-  const classes = useStyle();
 
   return (
     <React.Fragment>
