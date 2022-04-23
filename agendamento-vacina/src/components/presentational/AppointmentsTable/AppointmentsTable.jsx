@@ -4,6 +4,8 @@ import Button from "@material-ui/core/Button";
 import moment from "moment";
 import "moment/locale/pt-br.js";
 
+import { appointmentService } from "../../../services/appointmentService";
+
 const columns = [
   {
     field: "name",
@@ -36,7 +38,7 @@ const columns = [
         // atualizar o agendamento no servidor para accomplished true
         // alterar a exibição da coluna para "Realizado"
 
-        //appointmentService.put({...params.row, _id: params.row.id});
+        appointmentService.put({ accomplished: true }, params.row.id);
 
         params.row.accomplished = true;
       }
@@ -73,7 +75,7 @@ export function AppointmentsTable({ appointments }) {
           id: appointment._id,
           appointmentDate: moment(appointment.appointmentDate).format("LL"),
           birthDay: moment(appointment.appointmentDate).format("L"),
-          accomplished: false,
+          accomplished: appointment.accomplished,
           hour: new Date(appointment.appointmentDate).getHours() + "h",
         });
       });
