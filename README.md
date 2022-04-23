@@ -10,7 +10,7 @@ This project is a Single Page Application for the creation of vaccine appointmen
 2. Install the packages using your favorite package manager ( yarn install or npm install ).
 3. **Important:** Rename the file config/**config.example.js** to config/**config.js** and add the API_URL. The default is http://localhost:8080
 4. Run the app.
-5. The backend must be on too.
+5. The backend must be on too. You can find it [here](https://github.com/merciof/trainee-pitang-backend)
 
 ## :tada: Technologies
 
@@ -19,7 +19,7 @@ This project uses the following technologies
 - :zap: **Create React App** -> For rapid React project setup.
 - :zap: **React Router Dom** -> For SPA routes.
 - :zap: **React Hooks** -> useState, useReducer, useContext, For state management.
-- :zap: **React Functional Components** -> To describe the UI components.
+- :zap: **React Functional Components** -> To declare the UI components.
 - :zap: **Material UI** -> For beautiful components. 
 - :zap: **Axios** -> To request data over the network.
 - :zap: **Formik** -> For rapid and clean forms.
