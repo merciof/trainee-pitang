@@ -58,7 +58,7 @@ export function CreateAppointmentPage() {
 
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar text={"Agendamento Vacina"} />
       <Grid container justifyContent="center" className={classes.margint}>
         <Grid item md={6}>
           <Paper className={classes.padding} elevation={3}>

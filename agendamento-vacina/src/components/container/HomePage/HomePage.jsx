@@ -6,9 +6,9 @@ import { Navbar } from "../../presentational/Navbar";
 export function HomePage() {
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar text={"Agendamento Vacina"} />
       <Hero
-        majorText={"Marque e acompanhe o seu agendamento"}
+        majorText={"Marque e acompanhe os agendamento"}
         leftButtonText={"Agendar"}
         rightButtonText={"Ver Agendamentos"}
       />
