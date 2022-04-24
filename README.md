@@ -9,7 +9,7 @@ This project is a Single Page Application for the creation of vaccine appointmen
 1. Clone this repo.
 2. Install the packages using your favorite package manager ( yarn install or npm install ).
 3. **Important:** Rename the file src/config/**config.example.js** to src/config/**config.js** and add the API_URL. The default is http://localhost:8080
-4. Run the app.
+4. Run the app. ( yarn start )
 5. The backend must be on too. You can find it [here](https://github.com/merciof/trainee-pitang-backend)
 
 ## :tada: Technologies
